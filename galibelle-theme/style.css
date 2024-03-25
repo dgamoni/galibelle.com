@@ -1,8 +1,74 @@
 /*
-Theme Name: Galibelle
+Theme Name: Galibelle theme
 Description: Custom theme special for galibelle
 Author: Andrey Monin
 Theme URI: http://bigcatcode.com/
 Author URI: http://bigcatcode.com/
 Version: 1.0.0
 */ 
+
+/*main style*/
+
+
+body {
+
+}
+ul li {
+  list-style: none;
+}
+
+/*header*/
+#top-header{
+  height: 60px;
+  padding: 17px 0 17px 0;
+  /*background-color: #fff;*/
+}
+#top-header .container {
+
+}
+#header {
+  height: auto;
+  background-color: #f7c329;
+}
+#mainlogo {
+  padding: 0;
+  line-height: 125px;
+}
+
+/*menu*/
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link {
+  line-height: 135px;
+}
+.mobileon{display:none;}
+.mobileoff{display:block;}
+
+/*footer*/
+.footer {
+  background-color: #f1f1ef;
+  font-size: 11px;
+  min-height: 140px;
+  padding: 26px 0 26px 0;
+}
+.footer ul li a {
+  color: #000;
+  text-transform: uppercase;
+}
+.footer-menu {
+  min-height: 100px;
+}
+.footer-menu ul {
+  padding: 0;
+}
+
+
+/*test style*/
+body {
+	background-image: url('assets/img/01_home.jpg');
+}
+
+
+/*[class*="col-"] {
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid rgba(86,61,124,.2);
+}
+*/

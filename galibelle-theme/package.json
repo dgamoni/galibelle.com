@@ -1,0 +1,23 @@
+{
+  "name": "galibelle-theme",
+  "version": "1.0.0",
+  "description": "Outsourcing service for WordPress",
+  "main": "gulp.js",
+  "dependencies": {},
+  "devDependencies": {
+    "compass-mixins": "^0.12.7",
+    "gulp": "^3.9.1",
+    "gulp-compass": "^2.1.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "jshint": "^2.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrey Monin",
+  "license": "ISC"
+}

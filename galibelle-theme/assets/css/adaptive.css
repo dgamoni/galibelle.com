@@ -1,0 +1,28 @@
+
+
+
+
+
+@media screen and (max-width: 992px) {
+	#mainlogo {
+		float: none !important;
+    	text-align: center;
+	}
+} 
+
+@media screen and (max-width: 768px) {
+	#mainlogo img {
+		width: 100px;
+	}
+	#mainlogo {
+	    line-height: 60px;
+	}
+	.mobileon{display:block;}
+	.mobileoff{display:none;}
+
+	#header .container {
+	    max-width: 100%;
+	    padding: 0;
+	}
+
+}
