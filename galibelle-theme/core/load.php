@@ -39,7 +39,7 @@ foreach ($dirs as $dir) {
 
 
 //plugins
-//require_once CORE_PLUGINS_PATH. 'megamenu/megamenu.php';
+require_once CORE_PLUGINS_PATH. 'init.php';
 
 // modules
 //require_once CORE_MODULES_PATH . 'init.php';

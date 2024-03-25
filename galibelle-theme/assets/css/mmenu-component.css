@@ -8,7 +8,16 @@
 	font-weight: normal;
 	font-style: normal;
 }
-
+@font-face {
+  font-family: 'galibelle-icon';
+  src:  url('../fonts/galibelle-icon.eot?746in');
+  src:  url('../fonts/galibelle-icon.eot?746in#iefix') format('embedded-opentype'),
+    url('../fonts/galibelle-icon.ttf?746in') format('truetype'),
+    url('../fonts/galibelle-icon.woff?746in') format('woff'),
+    url('../fonts/galibelle-icon.svg?746in#galibelle-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 /* Common styles of menus */
 
 .dl-menuwrapper {
@@ -86,14 +95,15 @@
 }
 
 .dl-menuwrapper li a {
-	display: block;
-	position: relative;
-	padding: 15px 20px;
-	font-size: 16px;
-	line-height: 20px;
-	font-weight: 300;
-	color: #fff;
-	outline: none;
+    display: block;
+    position: relative;
+    padding: 10px 20px;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 600;
+    color: #fff;
+    outline: none;
+    text-transform: uppercase;
 }
 
 .no-touch .dl-menuwrapper li a:hover {
@@ -101,7 +111,7 @@
 }
 
 .dl-menuwrapper li.dl-back > a {
-	padding-left: 30px;
+	padding-left: 35px;
 	background: rgba(0,0,0,0.1);
 }
 
@@ -109,23 +119,55 @@
 .dl-menuwrapper li > a:not(:only-child):after {
 	position: absolute;
 	top: 0;
-	line-height: 50px;
-	font-family: 'icomoon';
+	line-height: 37px;
+	/*font-family: 'icomoon';*/
+	font-family: 'galibelle-icon';
 	speak: none;
 	-webkit-font-smoothing: antialiased;
-	content: "\e000";
+	/*content: "\e000";*/
+	content: "\e409";
+	font-size: 24px;
+}
+.menudivider {
+    border-top: 1px solid #fff;
+    margin-top: 10px;
+}
+.menudivider a:first-child {
+	opacity: 0;
+}
+.socicon {
+	position: absolute !important;
+}
+.socicon:after, .mobilregions a:after, .menudivider a:after {
+	content: "" !important;
+}
+.socicon-facebook {
+    top: -1px;
+    right: 76px;
+}
+.socicon-instagram{
+	top: -1px;
+    right: 42px;
+}
+.menudivider .socicon-facebook {
+    right: 50%;
+}
+.menudivider .socicon-instagram{
+    right: 43%;
 }
 
 .dl-menuwrapper li.dl-back:after {
 	left: 10px;
-	color: rgba(212,204,198,0.3);
+	/*color: rgba(212,204,198,0.3);*/
+	color: white;
 	-webkit-transform: rotate(180deg);
 	transform: rotate(180deg);
 }
 
 .dl-menuwrapper li > a:after {
-	right: 10px;
-	color: rgba(0,0,0,0.15);
+	right: 30px;
+	/*color: rgba(0,0,0,0.15);*/
+	color: white;
 }
 
 .dl-menuwrapper .dl-menu {

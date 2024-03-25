@@ -33,7 +33,7 @@ function shops_custom_post_type() {
 		'label'                 => __( 'Shops', 'galibelle' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', 'page-attributes', ),
-		'taxonomies'            => array( 'continent', 'country', 'city' ),
+		'taxonomies'            => array( 'regions' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,

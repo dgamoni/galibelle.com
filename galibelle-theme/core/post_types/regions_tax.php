@@ -3,9 +3,9 @@
 function continent_custom_taxonomy() {
 
 	$labels = array(
-		'name'                       => _x( 'Continent', 'Taxonomy General Name', 'galibelle' ),
-		'singular_name'              => _x( 'Continent', 'Taxonomy Singular Name', 'galibelle' ),
-		'menu_name'                  => __( 'Continent', 'galibelle' ),
+		'name'                       => _x( 'Regions - Continent/Country/City', '', 'galibelle' ),
+		'singular_name'              => _x( 'Regions', '', 'galibelle' ),
+		'menu_name'                  => __( 'Regions', 'galibelle' ),
 		'all_items'                  => __( 'All Items', 'galibelle' ),
 		'parent_item'                => __( 'Parent Item', 'galibelle' ),
 		'parent_item_colon'          => __( 'Parent Item:', 'galibelle' ),
@@ -33,7 +33,7 @@ function continent_custom_taxonomy() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'continent', array( 'shops' ), $args );
+	register_taxonomy( 'regions', array( 'shops' ), $args );
 
 }
 add_action( 'init', 'continent_custom_taxonomy', 0 ); 

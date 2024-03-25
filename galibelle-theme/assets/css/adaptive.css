@@ -16,6 +16,12 @@
 	#mini_poster_img img {
 		width: 200px;
 	}
+	.brand-content {
+	    padding-right: 0px; 
+	}
+	#brand-block .display-1 {
+	    font-size: 5.0rem;
+	}
 
 }
 
@@ -36,6 +42,15 @@
 	}
 	.model-col-text {
 	    width: 100%;
+	}
+	.townfilter {
+		max-width: 100%;
+	}
+	ul.mega-sub-menu li div {
+	  padding-left: 0px;
+	}
+	#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item h4.mega-block-title {
+	    padding-left: 0px;
 	}
 } 
 
@@ -78,6 +93,9 @@
 	#collection-content-mobil {
 	    padding-top: 122px;
 	}
+	.flickity-prev-next-button {
+	    top: 35%;
+	}
 
 }
 
@@ -114,5 +132,12 @@
 	}
 	#mini_poster_img img {
 	    width: 130px;
+	}
+	#brand-block .display-1 {
+	    font-size: 4.0rem;
+	}
+	#shops-block h1.display-1 {
+	    padding: 0;
+	    font-size: 25px;
 	}
 }

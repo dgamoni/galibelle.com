@@ -28,7 +28,28 @@
 					<button class="dl-trigger">Menu</button>
 					<span class="dl-trigger dl-trigger-label">Menu</span>
 
-					<ul class="dl-menu">
+					<?php 
+						wp_nav_menu( array(
+							'theme_location'  => 'mobil',
+							'menu'            => '', 
+							'container'       => '', 
+							'container_class' => '', 
+							'container_id'    => '',
+							'menu_class'      => 'dl-menu', 
+							'menu_id'         => '',
+							'echo'            => true,
+							'fallback_cb'     => 'wp_page_menu',
+							'before'          => '',
+							'after'           => '',
+							'link_before'     => '',
+							'link_after'      => '',
+							'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+							'depth'           => 0,
+							'walker'          => new MobilMenuWalker(),
+						) );
+					?>
+
+					<!-- <ul class="dl-menu">
 						<li>
 							<a href="#">Fashion</a>
 							<ul class="dl-submenu">
@@ -125,7 +146,9 @@
 								</li>
 							</ul>
 						</li>
-					</ul>
+					</ul> -->
+
+
 				</div><!-- /dl-menuwrapper -->
 			</nav>
 

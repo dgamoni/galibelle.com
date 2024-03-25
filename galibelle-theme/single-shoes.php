@@ -39,6 +39,8 @@ $params_mini_img = array( 'width' => 262, 'height' => 242 );
 
 	<?php get_template_part( 'includes/shema' ); ?>
 
+	<?php get_template_part( 'includes/alsolike' ); ?>
+
 	<?php get_template_part( 'includes/subscribe' ); ?>
 
 

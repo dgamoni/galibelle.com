@@ -18,7 +18,7 @@
 	              <div class="row">
 	                <div class="col-xl-5  col-lg-0"></div>
 	                <div class="col-xl-4 text-xl-right col-md-6 col-sm-6">© 2016 Galibelle. All Rights Reserved</div>
-	                <div class="col-xl-3 text-xl-right col-md-6 col-sm-6">Política de Privacidade</div>
+	                <div class="col-xl-3 text-xl-right col-md-6 col-sm-6"><a href="/privacy-policy/">Privacy policy</a></div>
 	              </div>
 	            </div>
 	        </div>

@@ -8,6 +8,8 @@
 
 	<?php get_template_part( 'includes/home-slider' ); ?>
 
+	<?php get_template_part( 'includes/highlights' ); ?>
+
 	<?php get_template_part( 'includes/home-shema' ); ?>
 
 	<?php get_template_part( 'includes/subscribe' ); ?>

@@ -1,9 +1,9 @@
 /*
 Theme Name: Galibelle theme
 Description: Custom theme special for galibelle
-Author: Andrey Monin
-Theme URI: http://bigcatcode.com/
-Author URI: http://bigcatcode.com/
+Author: by Nove
+Theme URI: 
+Author URI: 
 Version: 1.0.0
 */ 
 
@@ -26,16 +26,69 @@ p {
 }
 
 
+/*top header*/
+.topmenu-social-ico {
+    display: inline-block;
+    margin-left: 12px;
+    vertical-align: middle;
+}
+.fb-ico {
+  background: url('assets/img/sprite2.png') no-repeat;
+  background-position: -124px -42px;
+  width: 17px;
+  height: 17px;
+}
+.fb-ico-white {
+  background: url('assets/img/sprite2.png') no-repeat;
+  background-position: -123px -86px;
+  width: 17px;
+  height: 17px;
+}
+#mega-menu-wrap-top_heder #mega-menu-top_heder li.mega-fb-ico.mega-menu-item {
+  background: url('assets/img/sprite2.png') no-repeat;
+  background-position: -105px -22px;
+}
+
+#mega-menu-wrap-top_heder #mega-menu-top_heder li.mega-fb-ico.mega-menu-item a:first-of-type,
+#mega-menu-wrap-top_heder #mega-menu-top_heder li.mega-inst-ico.mega-menu-item  a:first-of-type,
+#mega-menu-wrap-top_heder #mega-menu-top_heder li.mega-basket-ico.mega-menu-item a:first-of-type
+{
+  text-indent: -1000px;
+}
+.inst-ico {
+    background: url('assets/img/sprite2.png') no-repeat;
+  background-position: -41px -41px;
+  width: 17px;
+  height: 17px;
+}
+.inst-ico-white {
+    background: url('assets/img/sprite2.png') no-repeat;
+  background-position: -39px -85px;
+  width: 17px;
+  height: 17px;
+}
+#mega-menu-wrap-top_heder #mega-menu-top_heder li.mega-inst-ico.mega-menu-item {
+    background: url('assets/img/sprite2.png') no-repeat;
+  background-position: -26px -22px;
+}
+
+.basket-ico, #mega-menu-wrap-top_heder #mega-menu-top_heder li.mega-basket-ico.mega-menu-item {
+    background: url('assets/img/sprite2.png') no-repeat;
+background-position: -23px -153px;
+float: right;
+/*  background-position: -35px -168px;*/
+/*  width: 24px;
+  height: 26px;*/
+}
+#basket {
+
+}
+#mega-menu-wrap-top_heder #mega-menu-top_heder > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item h4.mega-block-title {
+    position: absolute;
+    top: -60px;
+}
 
 /*header*/
-#top-header{
-  height: 60px;
-  padding: 17px 0 17px 0;
-  /*background-color: #fff;*/
-}
-#top-header .container {
-
-}
 #header {
   height: auto;
   background-color: #f7c329;
@@ -44,6 +97,10 @@ p {
 #mainlogo {
   padding: 0;
   line-height: 125px;
+}
+#blog-title a {
+  position: relative;
+  z-index: 99;
 }
 
 /*menu*/
@@ -199,6 +256,30 @@ p {
   padding: 30px 0px 0px 0px;
 }
 
+/*alsolike*/
+#alsolike-block .container {
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+.alsolike-img {
+  position: relative;
+  margin-bottom: 10px;
+}
+.alsolike-title {
+  position: absolute;
+  color: #fff;
+  bottom: 75px;
+  left: 27px;
+}
+.alsolike-subtitle {
+  position: absolute;
+  color: #fff;
+  bottom: 26px;
+  left: 27px;
+  font-size: 1.1rem;
+}
+/*carousel*/
+
+
 /*helper*/
 .vertical-align {
     display: flex;
@@ -214,5 +295,166 @@ body {
 /*[class*="col-"] {
   background-color: rgba(86,61,124,.15);
   border: 1px solid rgba(86,61,124,.2);
+}*/
+
+
+/*carousel*/
+.carousel-cell {
+  width: 33%;
+  /*height: 465px;*/
+  margin-right: 10px;
 }
-*/
+.flickity-prev-next-button svg {
+    left: 0%;
+    top: 5%;
+    width: 90%;
+    height: 90%;
+}
+.flickity-prev-next-button {
+    top: 40%;
+}
+.flickity-prev-next-button.next {
+    right: -50px;
+    background-color: transparent;
+}
+.flickity-prev-next-button.previous {
+    left: -50px;
+    background-color: transparent;
+}
+.flickity-prev-next-button .arrow {
+    fill: #f7c531;
+}
+
+/*highlights*/
+#highlights-block {
+  padding: 22px 0px 22px 0;
+}
+.highlights-col-text {
+  padding: 30px 0 0 0;
+}
+#highlights-block .container {
+     width: 87%; 
+}
+.highlights-col-text a {
+    text-transform: uppercase;
+}
+.highlights-link {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/*brand*/
+.brand-content {
+     padding-right: 200px;
+    padding-top: 20px;
+}
+
+
+/*lastnews*/
+#lastnews-block {
+  margin: 30px 0px;
+  padding: 22px 0px;
+}
+#lastnews-block .container {
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+.news-title {
+  padding: 30px 0 15px 0;
+}
+
+/*shops map*/
+.contacts_content_with_sidebar_wrap .contacts_content_with_sidebar .searchresults ul li {
+    display: none;
+}
+.contacts_content_with_sidebar_wrap .contacts_content_with_sidebar .searchresults ul li.show {
+    display: block;
+}
+.townfilter {
+    width: 100%;
+    max-width: 390px;
+    background-color: #f1f1ef;
+    border: none;
+    font-size: 1.25rem;
+    padding: 5px 10px 5px 10px;
+    margin: 15px 0 30px 0;
+}
+.townfilter::-webkit-input-placeholder { color: #fefefe; }
+.townfilter:-moz-placeholder { color: #fefefe; }
+.townfilter::-moz-placeholder { color: #fefefe; }
+.townfilter:-ms-input-placeholder { color: #fefefe; }
+
+#shops-block h1.display-1 {
+    padding: 50px 0 70px 0;
+}
+#shops-block h3.display-4 {
+    font-size: 1.25rem;
+}
+.region-link {
+  color: #000;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.firm_adress_link {
+  color: #000;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+
+    width: 100%;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+#firm_adress_sidebar {
+  padding-left: 30px;
+}
+#firm_adress_sidebar li {
+  /*border-bottom: 1px solid rgba(0,0,0,0.1);*/
+  padding-bottom: 10px;
+}
+.contacts_elements {
+/*   border-top: 1px solid rgba(0,0,0,0.1);
+   padding-top: 10px;*/
+}
+.text p {
+  font-size: .8rem;
+  margin-bottom: 3px;
+}
+.sidebar {
+  position: relative;
+}
+.searchresults {
+    position: absolute;
+    top: 87px;
+    background-color: #f1f1ef;
+    width: 100%;
+    max-width: 390px;
+    z-index: 99;
+}
+.search-results-label {
+  padding-left: 12px;
+  margin-bottom: 9px;
+    padding-top: 3px;
+}
+.searchresults ul {
+  padding: 12px;
+}
+
+/*megamenu*/
+ul.mega-sub-menu li ul {
+    padding-left: 0;
+}
+ul.mega-sub-menu li ul li a {
+  color: #fff;
+}
+ul.mega-sub-menu li div {
+  border-right: 1px solid rgba(255,255,255,0.15);
+  padding-left: 40px;
+}
+.mega-block-title {
+  padding-left: 40px;
+  padding-bottom: 20px;
+}
