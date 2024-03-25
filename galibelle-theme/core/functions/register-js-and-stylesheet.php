@@ -49,5 +49,7 @@ function wpt_register_js()
     }
 }
 
-
+add_filter('acf/settings/google_api_key', function () {
+    return 'AIzaSyCarBfioQaf3fSqftkPJNozzczQQO8w9iA';
+});
 

@@ -20,7 +20,7 @@ if( $post_objects ): ?>
 				        	<div class="col-xl-4 flex-xl-middle joinus-content">
 					            <h3><?php the_title(); ?></h3>
 					            <p><?php kama_excerpt("maxchar=100"); ?></p>
-					        	<a href="<?php the_permalink(); ?>" class="bbtn btn-link">KNOW MORE</a>
+					        	<a href="<?php the_permalink(); ?>" class="btn btn-link">KNOW MORE</a>
 					        </div>
 				        </div>
 			        </div>

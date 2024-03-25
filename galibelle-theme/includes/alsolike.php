@@ -23,11 +23,9 @@ if( $post_objects ): ?>
 			        			<?php } else { ?>
 			        				<img src="<?php echo bfi_thumb( $thumb_url, $params_alsolike_img ); ?>" class="w-100">	
 			        			<?php } ?>
-				        		<!-- <img src="<?php echo bfi_thumb( $thumb_url, $params_alsolike_img ); ?>" class="w-100"> -->
-				        		<h4 class="alsolike-title"><?php echo get_the_title( $post->ID ); ?></h4>
 				        		<p class="alsolike-subtitle"><?php echo get_field( 'gal_collection_subtitle', $post->ID ); ?></p>
 				        	</a>
-			        	</div>
+			        	</div><br /><p style="text-align: center;"><h7><?php echo get_the_title( $post->ID ); ?></h7></p>
 			        </div>
 			            
 			        

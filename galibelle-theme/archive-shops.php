@@ -10,10 +10,10 @@
 						
 						<div class="content">
 							<div class="gmap embed-responsive embed-responsive-4by3">
-								<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places,drawing,geometry"></script>
+								<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCarBfioQaf3fSqftkPJNozzczQQO8w9iA&v=3.exp&libraries=places,drawing,geometry"></script>
 								<div id="g_map" style="width:816px; height: 600px;margin: 0px;padding: 0px;"></div>
 							</div>
-						</div> <!-- end content -->
+						</div> <!-- end content 1-->
 
 					</div>
 		        </div>

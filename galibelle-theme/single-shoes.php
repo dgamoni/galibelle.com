@@ -14,7 +14,7 @@ $params_mini_img = array( 'width' => 262, 'height' => 242 );
 		            <h1 class="display-1 text-lg-left text-xs-center"><?php the_title(); ?></h1>
 		            <!-- <p><?php kama_excerpt(array('maxchar'=>'150')); ?></p>  -->
 		            <p class="collecton-content hidden-md-down"><?php echo get_the_content(); ?></p> 
-		            <a class="hidden-md-down" href="<?php echo $gal_collection_link; ?>">
+		            <a data-toggle="modal" data-target="#shopnowmodal" class="hidden-md-down" href="<?php echo $gal_collection_link; ?>">
 		            	<button type="button" class="btn btn-warning">Shop <?php the_title(); ?></button>
 		            </a>
 		          </div>

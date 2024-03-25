@@ -16,7 +16,7 @@ $params_news_img = array( 'width' => 405, 'height' => 183 );
 
 <div id="lastnews-block">
     <div class="container">
-    	<h5 class="display-4 text-xs-center">Lastest news</h5>
+    	<h5 class="display-4 text-xs-center">Latest news</h5>
 	    
 	    <div id="load_more_content" class="row ">
 			<?php while ($query_news->have_posts()): $query_news->the_post(); ?>
@@ -37,7 +37,7 @@ $params_news_img = array( 'width' => 405, 'height' => 183 );
 
         </div> <!-- end load_more_content -->
 
-        <a href="#" data-offset="1" id="load_more_news" class="text-xs-center">Load more..</a>
+        <a href="#" data-offset="1" id="load_more_news" class="text-xs-center btn-link">Load more...</a>
 
     </div>
 </div>

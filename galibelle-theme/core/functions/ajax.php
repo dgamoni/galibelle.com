@@ -81,7 +81,13 @@ function deco_get_firms_by_tax( $first_term_id = 0 ) {
 
 	$i = 1;
 	while ( $r->have_posts() ): $r->the_post();
-
+		
+		$gal_regions_zoom_map = get_field( 'gal_regions_zoom_map', get_the_ID() );
+		if ($gal_regions_zoom_map) {
+			$zoom = $gal_regions_zoom_map;
+		} else {
+			$zoom = 0;
+		} 
 		?>
 
 		<?php $object_terms = wp_get_object_terms( $r->post->ID, 'regions' ); ?>
@@ -109,7 +115,8 @@ function deco_get_firms_by_tax( $first_term_id = 0 ) {
 
 			</div>
 			<div class="text">
-				<p class="main_city"><?php echo $object_terms[0]->slug; ?></p>
+				<!-- <p class="main_city"><?php echo $object_terms[0]->slug; ?></p> -->
+				<p class="main_city"><?php echo $object_terms[0]->name; ?></p>
 				<p class="adres">
 					<?php
 
@@ -125,21 +132,26 @@ function deco_get_firms_by_tax( $first_term_id = 0 ) {
 
 					?>
 					<?php $object_terms2 = wp_get_object_terms($r->post->ID,'regions'); ?>
-					<a href="#gmap_<?php echo $lat; ?>_<?php echo $lng; ?>_<?php echo $object_terms2[0]->slug; ?>" data-term-id="<?php echo $first_term_id; ?>" data-lat="<?php echo $lat; ?>" data-lng="<?php echo $lng; ?>" data-coord="<?php echo $office_coords; ?>" class="smap-link">
+					<!-- <a href="#gmap_<?php echo $lat; ?>_<?php echo $lng; ?>_<?php echo $object_terms2[0]->slug; ?>" data-term-id="<?php echo $first_term_id; ?>" data-lat="<?php echo $lat; ?>" data-lng="<?php echo $lng; ?>" data-coord="<?php echo $office_coords; ?>" class="smap-link"> -->
 						<span><?php echo get_the_title(); ?></span>
 						<!--p><?php //echo get_the_title(); ?></p-->
-						<?php //echo get_field( 'field_543bcfa3b8961', get_the_ID() ); ?></a>
+						<?php //echo get_field( 'field_543bcfa3b8961', get_the_ID() ); ?>
+					<!-- </a> -->
 					<?php
 					//$office_address = get_field( 'office_address', get_the_ID() );
 					?>
 				</p>
 
 				<?php if ( $gal_shop_address_1 = get_field( 'gal_shop_address_1', get_the_ID() ) ) { ?>
-					<p class="gal_shop_address_1"><?php echo $gal_shop_address_1; ?></p>
+					<a href="#gmap_<?php echo $lat; ?>_<?php echo $lng; ?>_<?php echo $object_terms2[0]->slug; ?>" data-zoom="<?php echo $zoom; ?>" data-term-id="<?php echo $first_term_id; ?>" data-lat="<?php echo $lat; ?>" data-lng="<?php echo $lng; ?>" data-coord="<?php echo $office_coords; ?>" class="smap-link gal_shop_address_2_link">
+						<p class="gal_shop_address_1"><?php echo $gal_shop_address_1; ?></p>
+					</a>
 				<?php } ?>
 
 				<?php if ( $gal_shop_address_2 = get_field( 'gal_shop_address_2', get_the_ID() ) ) { ?>
-					<p class="gal_shop_address_2"><?php echo $gal_shop_address_2; ?></p>
+					<a href="#gmap_<?php echo $lat; ?>_<?php echo $lng; ?>_<?php echo $object_terms2[0]->slug; ?>" data-zoom="<?php echo $zoom; ?>" data-term-id="<?php echo $first_term_id; ?>" data-lat="<?php echo $lat; ?>" data-lng="<?php echo $lng; ?>" data-coord="<?php echo $office_coords; ?>" class="smap-link gal_shop_address_2_link">
+						<p class="gal_shop_address_2"><?php echo $gal_shop_address_2; ?></p>
+					</a>
 				<?php } ?>
 
 				<?php if ( $gal_shop_phone = get_field( 'gal_shop_phone', get_the_ID() ) ) { ?>
@@ -177,8 +189,9 @@ function deco_get_firms_by_tax( $first_term_id = 0 ) {
 		</div>
 		<ul id="search_city_list">
 			<li>
-				<a href="/stores/#gmap_<?php echo $lat; ?>_<?php echo $lng; ?>_<?php echo $object_terms2[0]->slug; ?>" data-tax-id="<?php echo $first_term_id; ?>" data-lat="<?php echo $lat; ?>" data-lng="<?php echo $lng; ?>" data-coord="<?php echo $office_coords; ?>" class="smap-link firm_adress_link">
-						<?php echo $object_terms[0]->slug; ?>
+				<a href="/stores/#gmap_<?php echo $lat; ?>_<?php echo $lng; ?>_<?php echo $object_terms2[0]->slug; ?>" data-zoom="<?php echo $zoom; ?>" data-tax-id="<?php echo $first_term_id; ?>" data-lat="<?php echo $lat; ?>" data-lng="<?php echo $lng; ?>" data-coord="<?php echo $office_coords; ?>" class="smap-link firm_adress_link">
+						<!-- <?php echo $object_terms[0]->slug; ?> -->
+						<?php echo $object_terms[0]->name; ?>
 				</a>
 	
 	<!-- list -->
@@ -221,7 +234,7 @@ function deco_get_firms_by_tax( $first_term_id = 0 ) {
 
 					?>
 					<?php $object_terms2 = wp_get_object_terms($r->post->ID,'regions'); ?>
-					<a href="#gmap_<?php echo $lat; ?>_<?php echo $lng; ?>_<?php echo $object_terms2[0]->slug; ?>" data-term-id="<?php echo $first_term_id; ?>" data-lat="<?php echo $lat; ?>" data-lng="<?php echo $lng; ?>" data-coord="<?php echo $office_coords; ?>" class="smap-link">
+					<a href="#gmap_<?php echo $lat; ?>_<?php echo $lng; ?>_<?php echo $object_terms2[0]->slug; ?>" data-zoom="<?php echo $zoom; ?>" data-term-id="<?php echo $first_term_id; ?>" data-lat="<?php echo $lat; ?>" data-lng="<?php echo $lng; ?>" data-coord="<?php echo $office_coords; ?>" class="smap-link">
 						<span><?php echo get_the_title(); ?></span>
 						<!--p><?php //echo get_the_title(); ?></p-->
 						<?php //echo get_field( 'field_543bcfa3b8961', get_the_ID() ); ?></a>

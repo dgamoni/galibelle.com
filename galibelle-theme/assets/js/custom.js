@@ -43,6 +43,20 @@ jQuery(document).ready(function($){
 	  //interval: false
 	  interval: 5000
 	});
+
+	// youtube
+	$(".embed-container-gal_home_slider_youtube").hide();
+	$('.slider_youtube_start').click(function(ev){
+		$('.carousel').carousel('pause');
+	    $('.slider_youtube_overlay').fadeOut(100);
+	    $('.slider_youtube_overlay').attr('style','display:none !important');
+	    $('.slider_youtube_title').hide();
+	    $('.slider_youtube_start').hide();
+	    $(".embed-container-gal_home_slider_youtube").fadeIn(500);
+	    $(".embed-container-gal_home_slider_youtube iframe")[0].src += "&autoplay=1";
+		ev.preventDefault();
+	});
+
 	$('.carousel').bcSwipe({ threshold: 50 });
 
 	// small carousel
@@ -363,6 +377,7 @@ jQuery(document).ready(function($){
 					$(wlh).trigger('click');
 					setTimeout(function(){
 						map.setZoom(17);
+						//console.log('17');
 					},200);
 
 				} else if(s === 4) {
@@ -385,6 +400,7 @@ jQuery(document).ready(function($){
 					var myLatLng = new google.maps.LatLng(x, y);
 					map.panTo(myLatLng);
 					map.setZoom(17);
+					//console.log('17 - 2');
 					$('body,html').animate({scrollTop: $('.content').offset().top - 50}, 400);
 				}
 
@@ -410,6 +426,7 @@ jQuery(document).ready(function($){
 						$('#'+id).parents('.ui-accordion-content').prev().click();
 					}
 					$('#'+id).trigger('click');
+					//console.log('not zoom');
 			}
 
 		}
@@ -423,7 +440,7 @@ jQuery(document).ready(function($){
 	/**
 	 * click sidebar go to map
 	 */
-	$(document).on('click', '.adres a', function () {
+	$(document).on('click', '.adres a, .gal_shop_address_2_link', function () {
 
 		$('.contacts_content_with_sidebar_wrap .contacts_content_with_sidebar .content .list').removeClass('active');
 		$('.contacts_content_with_sidebar_wrap .contacts_content_with_sidebar .content .gmap').addClass('active');
@@ -445,6 +462,7 @@ jQuery(document).ready(function($){
 		var myLatlng = new google.maps.LatLng(Lat, Long);
 		map.panTo(myLatlng);
 		map.setZoom(15);
+		//console.log('15');
 
 		//window.location.hash = hash;
 	});
@@ -453,15 +471,33 @@ jQuery(document).ready(function($){
 	var click_load = 0;
 
 	
+	
+
 	$(document).on('click', '.firm_adress li a, .region-link, .contacts_content_with_sidebar .searchresults .show a, .contacts_content_with_sidebar .searchresults li a', function (e) {
 		var obj = $(this),
 			term_id = obj.data('tax-id'),
+			zoom = obj.data('zoom'),
 			href = obj.attr('href'),
 			hs = href.split('#'),
 			hash = hs[1];
 
+			console.log(zoom);
+
+		//fix 9-12-16
+		if (this.href.indexOf('mailto') != -1) {
+	        console.log('mail');
+	        //window.location.href= $(this).prop('href');
+	        window.open($(this).prop('href'),'_blank');
+	    }
+
+	    //console.log($(this).parent()[0].className);
+	    if ( $(this).parent()[0].className == 'gal_shop_website_url') {
+	    	//window.location.href= $(this).prop('href');
+	    	window.open($(this).prop('href'),'_blank');
+	    }
+
 		e.preventDefault();
-		console.log(obj);
+		//console.log(obj);
 
 		$('#firms_list').css({
 			'opacity': 0.3
@@ -491,6 +527,31 @@ jQuery(document).ready(function($){
 						x[m] = e;
 					});
 
+					// fix 7-11-16 ------------
+					//if (hash === 'list_canada' ) {
+					if (zoom !=0 ) {
+
+						var latlngbounds = new google.maps.LatLngBounds();
+						for (var i = 0; i < x.length; i++) {
+
+							var b = x[i].replace('[','').replace(']',''),
+								bspl = b.split(','),
+								lat = bspl[0],
+								lng = bspl[1];
+
+							var myLatLng = new google.maps.LatLng(lat,lng);
+							latlngbounds.extend(myLatLng);
+
+						}
+						map.setCenter(latlngbounds.getCenter(), map.fitBounds(latlngbounds));
+						map.setZoom(zoom);
+						//console.log('list_canada zoom 15');
+						console.log('zoom true');
+						console.log(x.length);
+
+					} else 
+					// end fix --------
+
 					if (x.length !== 1) {
 
 						var latlngbounds = new google.maps.LatLngBounds();
@@ -506,8 +567,11 @@ jQuery(document).ready(function($){
 
 						}
 						map.setCenter(latlngbounds.getCenter(), map.fitBounds(latlngbounds));
+						//map.setZoom(15);
+						console.log(x.length);
 
 					}
+
 					else {
 
 						var latlngbounds = new google.maps.LatLngBounds();
@@ -518,6 +582,7 @@ jQuery(document).ready(function($){
 						var myLatLng = new google.maps.LatLng(lat,lng);
 						map.panTo(myLatLng);
 						map.setZoom(17);
+						console.log('17');
 
 					}
 
@@ -535,7 +600,10 @@ jQuery(document).ready(function($){
 
 	}); // end ajax
 
-
+	// $('.firm_adress_link .gal_shop_email a').click(function(e){
+	//     var targetLink = $(this).attr('href'); 
+	//     window.location.href= $(this).prop('href');
+	// });
 
 // load more news
 	$(document).on('click', '#load_more_news', function (e) {

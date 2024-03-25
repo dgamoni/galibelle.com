@@ -22,7 +22,7 @@
 						        	<img src="<?php echo bfi_thumb( $gal_collection_model_img, $params_model_img ); ?>" class="">
 						        	<div class="model-col-text text-xs-center">
 							        	<p class=""><?php echo $gal_collection_model_name; ?></p>
-							        	<a class="" href="<?php echo $gal_collection_model_url; ?>" class="bbtn btn-link" data-toggle="modal" data-target="#shopnowmodal">Shop now</a>
+							        	<a href="<?php echo $gal_collection_model_url; ?>" class="btn btn-link" data-toggle="modal" data-target="#shopnowmodal">SHOP NOW</a>
 							        </div>
 						        </div>
 						         
@@ -70,10 +70,10 @@
       	$menu_id_3 = 60; //Shop online > 3
 		$menu_id_4 = 61; //Shop online > 4	
       	?>
-      	<div class="modal-col col-lg-3"><?php echo gal_get_menu_by_id($menu_id_1); ?></div>
-      	<div class="modal-col col-lg-3"><?php echo gal_get_menu_by_id($menu_id_2); ?></div>
-      	<div class="modal-col col-lg-3"><?php echo gal_get_menu_by_id($menu_id_3); ?></div>
-      	<div class="modal-col col-lg-3"><?php echo gal_get_menu_by_id($menu_id_4); ?></div>
+      	<div class="modal-col col-sm-3"><?php echo gal_get_menu_by_id($menu_id_1); ?></div>
+      	<div class="modal-col col-sm-3"><?php echo gal_get_menu_by_id($menu_id_2); ?></div>
+      	<div class="modal-col col-sm-3"><?php echo gal_get_menu_by_id($menu_id_3); ?></div>
+      	<div class="modal-col col-sm-3"><?php echo gal_get_menu_by_id($menu_id_4); ?></div>
       </div>
 
     </div>
