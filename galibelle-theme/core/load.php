@@ -7,21 +7,13 @@ define( 'CORE_PLUGINS_URL', CORE_URL . '/plugins/' );
 define( 'CORE_MODULES_PATH', CORE_PATH . '/modules/' );
 define( 'CORE_MODULES_URL', CORE_URL . '/modules/' );
 
-require_once 'register-js-and-stylesheet.php';
-require_once 'register-menus.php';
-
-//plugins
-//require_once CORE_PLUGINS_PATH. 'megamenu/megamenu.php';
-
-// modules
-require_once CORE_MODULES_PATH . 'init.php';
-
-// Автозагрузка библиотек и функций
+// autoload functions
 $dirs = array(
     //CORE_PATH . '/widgets/',
-    //CORE_PATH . '/post_types/',
+    CORE_PATH . '/post_types/',
     //CORE_PATH . '/sidebars/',
     //CORE_PATH . '/shortcodes/',
+    CORE_PATH . '/functions/',
 
 );
 foreach ($dirs as $dir) {
@@ -46,4 +38,12 @@ foreach ($dirs as $dir) {
 }
 
 
+//plugins
+//require_once CORE_PLUGINS_PATH. 'megamenu/megamenu.php';
+
+// modules
+//require_once CORE_MODULES_PATH . 'init.php';
+
+//lib
+require_once CORE_PATH.'/lib/BFI_Thumb.php';
 

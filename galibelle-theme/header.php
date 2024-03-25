@@ -140,9 +140,10 @@
 	        <nav id="header-menu" class="pull-lg-right pull-md-left mobileoff" role="navigation">
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => '' ) ); ?>
 			</nav>
-		</div>
+
+		</div> <!-- /container -->
  
 		
 	</header>
 
-	<div class="container">
+	

@@ -1,8 +1,13 @@
 <?php get_header(); ?>
 
+  <div class="container">
+      <?php while (have_posts()): the_post(); ?>
+              <h1><?php the_title(); ?></h1>
+              <?php the_content(); ?>
+      <?php endwhile; ?>
+  </div>
 
-<!-- 
-      <h1>Bootstrap grid examples</h1>
+<!--       <h1>Bootstrap grid examples</h1>
       <p class="lead">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
 
       <h3>Five grid tiers</h3>
@@ -85,10 +90,30 @@
       <h3>Mixed: mobile and desktop</h3>
       <p>The Bootstrap v4 grid system has five tiers of classes: xs (extra small), sm (small), md (medium), lg (large), and xl (extra large). You can use nearly any combination of these classes to create more dynamic and flexible layouts.</p>
       <p>Each tier of classes scales up, meaning if you plan on setting the same widths for xs and sm, you only need to specify xs.</p>
-      <div class="row">
-        <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
-        <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-4">
+            <h3>YOU CAN CHANGE IT</h3>
+            <p>The Galibelle sandals allow you to easily swap different straps onto different soles. Whatever the occasion, with Galibelle sandals you will always be in fashion, comfortable and stylish.</p> 
+
+          </div>
+          <div class="col-xs-8 text-xs-right"><img src="http://galibelle.goclap.com/wp-content/uploads/2016/08/shema-home.png"></div>
+        </div>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div class="row">
         <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
         <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>

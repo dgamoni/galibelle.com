@@ -1,12 +1,41 @@
 
 
+@media screen and (max-width: 1200px) {
+  .carousel-caption {
+    width: 50%;
+  }
+  .joinus-content {
+	  margin-left: 0px;
+	  padding-top: 20px;
+	}
+	#mini_poster_img {
+		width: 236px;
+		bottom: 0px;
+	    left: -28px;
+	}
+	#mini_poster_img img {
+		width: 200px;
+	}
 
+}
 
 
 @media screen and (max-width: 992px) {
 	#mainlogo {
 		float: none !important;
     	text-align: center;
+	}
+	.carousel-caption {
+	    width: 85%;
+	}
+	  .carousel-caption h2 {
+	    padding-bottom: 0;
+	}
+	#model-block img {
+		width: 100%;
+	}
+	.model-col-text {
+	    width: 100%;
 	}
 } 
 
@@ -24,5 +53,66 @@
 	    max-width: 100%;
 	    padding: 0;
 	}
+	#header {
+	    margin-bottom: 15px;
+	}
+	.container.container-slider {
+		max-width: 100%;
+	}
+	.carousel-caption {
+	    top: 5%;
+	  }
+	 #subscribe-block .btn-warning{
+	     max-width: 150px;
+   		 margin-top: 10px;
+	}
+	.mc4wp-response {
+	    bottom: -75px;
+	}
+	#mini_poster_img {
+	    width: 214px;
+	    bottom: -91px;
+	    left: 29px;
+	    border: 7px solid #fff;
+	}
+	#collection-content-mobil {
+	    padding-top: 122px;
+	}
 
+}
+
+@media screen and (max-width: 544px) {
+	h2 {
+	    font-size: 1.4rem;
+	}
+	.carousel-caption {
+	    top: 0;
+	    text-align: center;
+	    padding-top: 4px;
+	}
+	.carousel-caption h2 {
+	    font-size: 1.4rem;
+	}
+	#home-shema {
+		text-align: center;
+	}
+	.mc4wp-response {
+	    left: 8px;
+	    bottom: -87px;
+	}
+	.collection-shema-title {
+	    padding: 35px 0 10px 0;
+	}
+	#main-collection-block h1.display-1 {
+		text-transform: uppercase;
+    	font-size: 1.5rem;
+	}
+	#mini_poster_img {
+	  	border: 5px solid #fff;
+    	width: 140px;
+    	bottom: -71px;
+	}
+	#mini_poster_img img {
+	    width: 130px;
+	}
 }

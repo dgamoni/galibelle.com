@@ -160,14 +160,23 @@
 
 .carousel-indicators {
   position: absolute;
-  bottom: 10px;
-  left: 50%;
+  // bottom: 10px;
+  // left: 50%;
   z-index: 15;
-  width: $carousel-indicators-width;
+  //width: $carousel-indicators-width;
   padding-left: 0;
-  margin-left: -($carousel-indicators-width / 2);
-  text-align: center;
+  //margin-left: -($carousel-indicators-width / 2);
+  //text-align: center;
   list-style: none;
+
+    // dgamoni
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    margin-left: 0;
+    text-align: right;
+    padding-right: 30px;
+
 
   li {
     display: inline-block;
@@ -203,13 +212,19 @@
   position: absolute;
   right: ((100% - $carousel-caption-width) / 2);
   bottom: 20px;
-  left: ((100% - $carousel-caption-width) / 2);
+  // left: ((100% - $carousel-caption-width) / 2);
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
   color: $carousel-caption-color;
-  text-align: center;
+  // text-align: center;
   text-shadow: $carousel-text-shadow;
+
+    width: 34%;
+    left: 7%;
+    top: 22%;
+    text-align: left;
+
 
   .btn {
     text-shadow: none; // No shadow for button elements in carousel-caption
@@ -242,12 +257,14 @@
   // Show and left align the captions
   .carousel-caption {
     right: ((100% - $carousel-caption-sm-up-width) / 2);
-    left: ((100% - $carousel-caption-sm-up-width) / 2);
+    // left: ((100% - $carousel-caption-sm-up-width) / 2);
     padding-bottom: 30px;
   }
 
   // Move up the indicators
   .carousel-indicators {
-    bottom: 20px;
+    // bottom: 20px;
+    bottom: 0px;
   }
 }
+
