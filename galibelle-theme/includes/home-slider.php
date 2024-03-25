@@ -30,15 +30,17 @@
 						$gal_home_slider_title = $row['gal_home_slider_title'];
 						$gal_home_slider_link = $row['gal_home_slider_link'];
 						$gal_home_slider_img = $row['gal_home_slider_img'];
-					    
-					    echo '<div class="carousel-item '.$class.'">';
-					      echo '<img src="'.$gal_home_slider_img['url'].'" alt="'.$gal_home_slider_img['alt'].'">';
-						  echo '<div class="carousel-caption">';
-						    echo '<h2>'.$gal_home_slider_title.'</h2>';
-						    echo '<a href="'.$gal_home_slider_link.'"><button type="button" class="btn btn-warning">See more</button></a>';
-						  echo '</div>';
-					    echo '</div>';
-
+						$gal_home_slider_img_mobil = $row['gal_home_slider_img_mobil'];
+					    ?>
+					    <div class="carousel-item <?php echo $class; ?>">
+					      <img class="hidden-xs-down" src="<?php echo $gal_home_slider_img['url']; ?>" alt="<?php echo $gal_home_slider_img['alt']; ?>">
+					      <img class="hidden-sm-up w-100" src="<?php echo $gal_home_slider_img_mobil['url']; ?>" alt="<?php echo $gal_home_slider_img_mobil['alt']; ?>">
+						  <div class="carousel-caption">
+						    <h2><?php echo $gal_home_slider_title; ?></h2>
+						    <a href="<?php echo $gal_home_slider_link; ?>"><button type="button" class="btn btn-warning">SEE MORE</button></a>
+						  </div>
+					    </div>
+					    <?php
 					}
 				?>
 			</div>	

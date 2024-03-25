@@ -4,8 +4,3 @@
 	</nav>
 
 
-<!-- 	<span class="sprite fb-ico">facebook</span>
-	<span class="sprite inst-ico">instagram</span>
-	<span class="sprite basket-ico">basket</span> -->
-
-

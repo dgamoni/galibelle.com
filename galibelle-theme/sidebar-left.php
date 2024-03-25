@@ -14,8 +14,12 @@
 			$first_term_id = 0;
 			?>
 
-			<h3 class="display-4 townfilter-lable text-xs-center text-lg-left">Search stores</h3>
-			<input type="text" class="townfilter text-xs-center text-lg-left" placeholder="CITY / COUNTRY" />
+			<div class="search-stores">
+				<h3 class="display-4 townfilter-lable text-xs-center text-lg-left">Search stores</h3>
+				<input type="text" class="townfilter text-xs-center text-lg-left" placeholder="CITY / COUNTRY" />
+			</div>
+			
+			<p class="listback">BACK</p>
 
 			<div class="elements contacts_elements">
 				<?php if ( count( $tax_city_office ) > 0 ) {
@@ -31,7 +35,7 @@
 							$first_term_id = $region->term_id;
 						}
 
-						if ( count( $tax_firm ) > 0 ) {
+						if (( count( $tax_firm ) > 0 ) && ($region->parent == 0 )){
 
 
 	//								print_r($region);
@@ -82,7 +86,7 @@
 										wp_reset_query();
 										$coords = json_encode( $res );
 										?>
-										<li>
+										<li class="search_country_list"">
 											<a class="firm_adress_link" href="<?php echo get_home_url() . '/shops/#list_' . $firm->slug; ?>" data-map-url="<?php echo get_home_url() . '/shops/#gmap_' . $firm->slug; ?>" data-list-url="<?php echo get_home_url() . '/shops/#list_' . $firm->slug; ?>" id="<?php echo 'gmap_' . $firm->slug; ?>" data-tax-id="<?php echo $firm->term_id; ?>" data-coords='<?php echo $coords; ?>'>
 												<?php echo $firm->name; ?>
 												<!-- <span class="right"><?php echo $firm->count; ?></span> -->

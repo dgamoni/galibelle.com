@@ -74,6 +74,18 @@
     left: 24%;
     box-shadow: 0 7px 0 #fff, 0 14px 0 #fff;
 }
+.dl-menuwrapper button.dl-active:after {
+	content: '✖';
+    background: none;
+    box-shadow: none;
+    color: white;
+    text-indent: 0;
+    font-size: 20px;
+    top: 15px;
+}
+.dl-trigger-label.dl-active {
+	display: none;
+}
 
 .dl-trigger-label {
 	font-size: 11px;
@@ -105,14 +117,17 @@
     outline: none;
     text-transform: uppercase;
 }
-
+.dl-menuwrapper li a:hover {
+	text-decoration: none;
+	color: #ed5a2e;
+}
 .no-touch .dl-menuwrapper li a:hover {
 	background: rgba(255,248,213,0.1);
 }
 
 .dl-menuwrapper li.dl-back > a {
 	padding-left: 35px;
-	background: rgba(0,0,0,0.1);
+	/*background: rgba(0,0,0,0.1);*/
 }
 
 .dl-menuwrapper li.dl-back:after,
@@ -145,15 +160,29 @@
     top: -1px;
     right: 76px;
 }
+.dl-submenu .socicon-facebook {
+    right: 53px;
+}
+
 .socicon-instagram{
 	top: -1px;
     right: 42px;
+}
+.dl-submenu .socicon-instagram {
+    right: 4px;
 }
 .menudivider .socicon-facebook {
     right: 50%;
 }
 .menudivider .socicon-instagram{
     right: 43%;
+}
+
+.mobil-regions-title {
+	font-size: 18px;
+	color: #ed5a2e;
+    text-transform: uppercase;
+    padding-left: 20px;
 }
 
 .dl-menuwrapper li.dl-back:after {
@@ -205,6 +234,12 @@ We also hide the submenu link.
 The opened submenu will get the class "dl-subviewopen".
 All this is done for any sub-level being entered.
 */
+.dl-subview .collectionsubtitle {
+	display: none;
+}
+.dl-subviewopen .collectionsubtitle {
+	display: block;
+}
 .dl-menu.dl-subview li,
 .dl-menu.dl-subview li.dl-subviewopen > a,
 .dl-menu.dl-subview li.dl-subview > a {
@@ -227,6 +262,14 @@ All this is done for any sub-level being entered.
 	left: 0;
 	margin: 0;
 }
+
+/*dgamoni */
+/*.submenu_count-1 .collection-submenu {
+	display: none;
+}
+.submenu_count-1 .collection-submenu:first-child  {
+	display: block;
+}*/
 
 /* Animation classes for moving out and in */
 
@@ -836,6 +879,8 @@ All this is done for any sub-level being entered.
 .demo-1 .dl-menuwrapper ul {
 	background: #9e1847;
 }
+
+
 
 /* Demo 2 */
 .demo-2 .dl-menuwrapper button {

@@ -187,17 +187,18 @@ class Walker_Nav_Menu_social extends Walker {
 			$gal_regions_facebook_link = get_field('gal_regions_facebook_link', 'regions_' . $item->object_id);
 			$gal_regions_instagram_link = get_field('gal_regions_instagram_link', 'regions_' . $item->object_id);
 			if ($gal_regions_facebook_link) {
-				$facebook = '<a href="'.$gal_regions_facebook_link.'"><span class="fb-ico-white topmenu-social-ico"></span></a>';
+				$facebook = '<a href="'.$gal_regions_facebook_link.'" target="_blank"><span class="fb-ico-white topmenu-social-ico"></span></a>';
 			}
 			if ($gal_regions_instagram_link) {
-				$instagram = '<a href="'.$gal_regions_instagram_link.'"><span class="inst-ico-white topmenu-social-ico"></span></a>';
+				$instagram = '<a href="'.$gal_regions_instagram_link.'" target="_blank"><span class="inst-ico-white topmenu-social-ico"></span></a>';
 			}
 		}
 
 		$item_output = $args->before;
-		$item_output .= '<a'. $attributes .'>';
-		$item_output .= $args->link_before . $title . $args->link_after;
-		$item_output .= '</a>'.$facebook.$instagram;
+		//$item_output .= '<a'. $attributes .'>';
+		$item_output .= '<span>' . $args->link_before . $title . $args->link_after . '</span>';
+		//$item_output .= '</a>'.$facebook.$instagram;
+		$item_output .= $facebook.$instagram;
 		$item_output .= $args->after;
 
 		/**

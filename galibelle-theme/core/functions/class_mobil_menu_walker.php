@@ -10,12 +10,14 @@ class MobilMenuWalker extends Walker_Nav_Menu {
     private $column_limit = 4;
     private $show_widget = false;
     private $column_count = 0;
+    static $submenu_count = 0;
     static $li_count = 0;
     function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
         $classes = empty($item->classes) ? array() : (array) $item->classes;
         $item_id = $item->ID;
         if ($depth == 0) {
             self::$li_count = 0;
+            self::$submenu_count = 0;
         }
         if ($depth == 0 && in_array("widget", $classes)) {
             $this->show_widget = true;
@@ -23,19 +25,33 @@ class MobilMenuWalker extends Walker_Nav_Menu {
         }
         if ($depth == 1 && self::$li_count == 1) {
             $this->column_count++;
+
         }
         if ($depth == 1 && in_array("break", $classes) && self::$li_count != 1 && $this->column_count < $this->column_limit) {
             $output .= "</ul><ul class=\"dl-submenu\">";
             $this->column_count++;
+            
+            
         }
         $class_names = join(" ", apply_filters("nav_menu_css_class", array_filter($classes), $item)); // set up the classes array to be added as classes to each li
         // $class_names = " class=\"" . esc_attr($class_names) . "\"";
 
+
+
     // dgamoni add social icon
+        $url = $item->url;
         $facebook = '';
         $instagram ='';
         $regions = '';
         if ( $item->object=='regions') {
+                $url = '#';
+                $term = get_term( $item->post_parent, 'regions' );
+                if (self::$li_count == 1) {
+                    $output .= '<p class="mobil-regions-title">'.$term->name.'</p>';
+                }
+
+            //$term = get_term( $item->post_parent, 'regions' );
+            //$term = get_term_by( 'id', intval($item->menu_item_parent), 'regions' );
             $regions = ' mobilregions';
             $gal_regions_facebook_link = get_field('gal_regions_facebook_link', 'regions_' . $item->object_id);
             $gal_regions_instagram_link = get_field('gal_regions_instagram_link', 'regions_' . $item->object_id);
@@ -59,6 +75,27 @@ class MobilMenuWalker extends Walker_Nav_Menu {
             }
         }
 
+               
+        // if ((self::$li_count == 1) && ($item->object == 'collection_cat') ){
+        //     $output .= '<p class="mobil-regions-title">Collection</p>';
+        // }
+
+
+        if ( (self::$submenu_count ==0) &&($item->object == 'shoes') ){
+             //$title = get_post( $item->object_id );
+             $collection_cat = get_the_terms( $item->object_id, 'collection_cat' );
+            // $title =  $item_id ;
+            $output .= '<p class="mobil-regions-title collection-submenu">Collection > '. $collection_cat[0]->name .'</p>';
+        }
+
+        if ( (self::$submenu_count ==0) && ($item->object == 'collection_cat') ){
+             //$output .= $item->object;
+             //$output .= self::$submenu_count;
+             //$output .= self::$li_count;
+             $output .= '<p class="mobil-regions-title collectionsubtitle collection-submenu">Collection</p>';
+        }
+       
+
          $class_names = " class=\"" . esc_attr($class_names) . $regions. "\"";
 
 
@@ -67,17 +104,23 @@ class MobilMenuWalker extends Walker_Nav_Menu {
             "<li id=\"menu-item-%s\"%s><a href=\"%s\">%s</a>%s",
             $item_id,
             $class_names,
-            $item->url,
+            //$item->url,
+            $url,
             $item->title,
             $facebook.$instagram
+            //var_dump((get_post( $item->menu_item_parent )->post_title))
         );
         self::$li_count++;
+        self::$submenu_count++;
+        
     }
     function start_lvl(&$output, $depth = 0, $args = array()) {
         if ($depth == 0) {
             //$output .= "<section>";
         }
-        $output .= "<ul class=\"dl-submenu\">";
+        $output .= "<ul class=\"dl-submenu submenu_count-".$this->submenu_count."\">";
+        //$output .= var_dump($item);
+        self::$submenu_count=0;
     }
     function end_lvl(&$output, $depth = 0, $args = array()) {
         $output .= "</ul>";
@@ -96,6 +139,7 @@ class MobilMenuWalker extends Walker_Nav_Menu {
     function end_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
         if ($depth == 0 && $this->column_count > 0) {
             $this->column_count = 0;
+
         }
         $output .= "</li>";
     }

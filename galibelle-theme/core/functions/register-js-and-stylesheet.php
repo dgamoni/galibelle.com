@@ -42,6 +42,9 @@ function wpt_register_js()
                  )
         );
 
+        wp_register_script('jquerystickyjs', get_template_directory_uri() . '/assets/js/jquery.sticky.js', array('jquery'), '', true);
+		wp_enqueue_script( 'jquerystickyjs' );
+
         
     }
 }

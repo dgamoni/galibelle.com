@@ -2,12 +2,46 @@ var map, term_id;
 
 jQuery(document).ready(function($){
 	
+	//map stiky
+	$("#g_map").sticky({
+		//topSpacing:130,
+		bottomSpacing:180,
+		//getWidthFrom:'.gmap'
+	});
+
+	//map menu
+	$('.list').hide();
+
+
+	$('.elements').on('click', '.firm_adress_link', function () {
+		$this = $(this);
+		$elements = $this.closest('.elements');
+		$elements.addClass('firm_adress_open');
+		$this.next('.list').addClass('list_current').show();
+		//$elements.before('<p class="listback">BACK</p>');
+		$('.listback').show();
+	});
+	$(document).on('click', '.listback', function () {
+		$this = $(this);
+		$this.next('.elements').removeClass('firm_adress_open');
+		$('.list').hide();
+		$('.listback').hide();
+	});
+
+	$(document).on('click', '.searchresults .firm_adress_link', function () {
+		//console.log($(this));
+		$this = $(this);
+		$this.next('.list').show();
+	});
+	
+
 	// mobilmenu
 	$( '#dl-menu' ).dlmenu();
 
 	// slider home
 	$('.carousel').carousel({
-	  interval: false
+	  //interval: false
+	  interval: 5000
 	});
 	$('.carousel').bcSwipe({ threshold: 50 });
 
@@ -31,14 +65,19 @@ jQuery(document).ready(function($){
 	 */
 	if ($(".contacts_content_with_sidebar_wrap .contacts_content_with_sidebar .elements").exists()) {
 		var resultslist = "";
-		$('.contacts_content_with_sidebar_wrap .contacts_content_with_sidebar .elements li').each(function () {
+		$('.contacts_content_with_sidebar_wrap .contacts_content_with_sidebar .elements li.search_country_list').each(function () {
 			resultslist = $("<li />").append($(this).clone()).html() + resultslist;
+			//console.log(resultslist);
+		});
+		$('.contacts_content_with_sidebar_wrap .contacts_content_with_sidebar .elements li #search_city_list li').each(function () {
+			resultslist = $("<li />").append($(this).addClass('search_city_li').clone()).html() + resultslist;
+			//console.log(resultslist);
 		});
 		$(".contacts_content_with_sidebar_wrap .contacts_content_with_sidebar .contacts_elements").accordion({
 			heightStyle: "content",
-			//collapsible: true,
+			collapsible: true,
 			autoHeight : false,
-			//active     : 2
+			active     : false
 		});
 		$(".contacts_content_with_sidebar_wrap .contacts_content_with_sidebar .spravka_elements").accordion({
 			heightStyle: "content",
@@ -78,8 +117,10 @@ jQuery(document).ready(function($){
 							if ($('.contacts_content_with_sidebar_wrap .contacts_content_with_sidebar .sidebar .townfilter').val() != "") {
 								$('.contacts_content_with_sidebar_wrap .contacts_content_with_sidebar .sidebar .searchresults').html('<p class="search-results-label">Search results:</p><ul></ul>');
 								$('.contacts_content_with_sidebar_wrap .contacts_content_with_sidebar .sidebar .searchresults ul').html(resultslist);
+								console.log(resultslist);
 								$('.contacts_content_with_sidebar_wrap .contacts_content_with_sidebar .sidebar .searchresults ul li').each(function () {
 									if ($(this).children("a").text().toLowerCase().indexOf(searchinputval.toLowerCase()) >= 0) {
+										//console.log( $(this).children("a").text().toLowerCase().indexOf(searchinputval.toLowerCase()) );
 										$(this).addClass("show");
 										searchinputvalcount = searchinputvalcount + 1;
 									}
@@ -182,7 +223,7 @@ jQuery(document).ready(function($){
 			];
 			
 			var mapOptions = {
-				zoom            : 12,
+				zoom            : 2,
 				center          : new google.maps.LatLng($portugal_Lat, $portugal_Long),
 				disableDefaultUI: false,
 				scaleControl    : false,
@@ -412,7 +453,7 @@ jQuery(document).ready(function($){
 	var click_load = 0;
 
 	
-	$(document).on('click', '.firm_adress li a, .region-link, .contacts_content_with_sidebar .searchresults .show a', function (e) {
+	$(document).on('click', '.firm_adress li a, .region-link, .contacts_content_with_sidebar .searchresults .show a, .contacts_content_with_sidebar .searchresults li a', function (e) {
 		var obj = $(this),
 			term_id = obj.data('tax-id'),
 			href = obj.attr('href'),
@@ -420,6 +461,7 @@ jQuery(document).ready(function($){
 			hash = hs[1];
 
 		e.preventDefault();
+		console.log(obj);
 
 		$('#firms_list').css({
 			'opacity': 0.3
@@ -493,6 +535,45 @@ jQuery(document).ready(function($){
 
 	}); // end ajax
 
+
+
+// load more news
+	$(document).on('click', '#load_more_news', function (e) {
+		var offset = $('#load_more_news').attr('data-offset');
+
+		e.preventDefault();
+		//console.log(offset);
+
+		$('#load_more_content').css({
+			'opacity': 0.3
+		});
+
+		$.ajax({
+			type    : "POST",
+			url     : "/wp-admin/admin-ajax.php",
+			dataType: "json",
+			data    : "action=deco_get_last_news&offset=" + offset,
+			success : function (a) {
+
+				if (a.content) {
+					$('#load_more_content').append(a.content).css({
+						'opacity': '1'
+					});
+
+					$('#load_more_news').attr('data-offset', a.offset);
+					//console.log( a.count);
+					if(a.count < 3) {
+						$('#load_more_news').html('No more news.');
+					}
+
+					//$('body,html').animate({scrollTop: $('.content').offset().top - 50}, 400);
+
+				}
+
+			}
+		});
+
+	}); // end loadmore ajax
 
 
 }); //end ready

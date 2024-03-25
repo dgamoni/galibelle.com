@@ -16,7 +16,14 @@ if( $post_objects ): ?>
 		        		<div class="alsolike-img">
 		        			<a href="<?php the_permalink(); ?>">
 			        			<?php $thumb_url =  wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
-				        		<img src="<?php echo bfi_thumb( $thumb_url, $params_alsolike_img ); ?>" class="w-100">
+			        			<?php $gal_collection_alsolike_image = get_field('gal_collection_alsolike_image', $post->ID); ?>
+			        			<?php 
+			        			if ($gal_collection_alsolike_image) { ?>
+			        				<img src="<?php echo bfi_thumb( $gal_collection_alsolike_image, $params_alsolike_img ); ?>" class="w-100">
+			        			<?php } else { ?>
+			        				<img src="<?php echo bfi_thumb( $thumb_url, $params_alsolike_img ); ?>" class="w-100">	
+			        			<?php } ?>
+				        		<!-- <img src="<?php echo bfi_thumb( $thumb_url, $params_alsolike_img ); ?>" class="w-100"> -->
 				        		<h4 class="alsolike-title"><?php echo get_the_title( $post->ID ); ?></h4>
 				        		<p class="alsolike-subtitle"><?php echo get_field( 'gal_collection_subtitle', $post->ID ); ?></p>
 				        	</a>

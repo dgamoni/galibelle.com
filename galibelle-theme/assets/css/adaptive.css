@@ -1,6 +1,11 @@
 
 
 @media screen and (max-width: 1200px) {
+#mega-menu-wrap-top_heder #mega-menu-top_heder > li.mega-menu-megamenu > ul.mega-sub-menu li.mega-menu-columns-1-of-6#mega-menu-item-widget_sp_image-3,
+#mega-menu-wrap-top_heder #mega-menu-top_heder > li.mega-menu-megamenu > ul.mega-sub-menu li.mega-menu-columns-1-of-6#mega-menu-item-widget_sp_image-4 {
+  width: 16.66667%;
+}
+
   .carousel-caption {
     width: 50%;
   }
@@ -27,6 +32,22 @@
 
 
 @media screen and (max-width: 992px) {
+	.footer-menu {
+	    margin-top: 10px;
+	}
+	.search-stores {
+	    background-color: #f1f1ef;
+	    padding: 10px;
+	    margin-bottom: 10px;
+	}
+	.townfilter {
+	    background-color: white;
+	}
+	.townfilter::-webkit-input-placeholder { color: #ccc; }
+	.townfilter:-moz-placeholder { color: #ccc; }
+	.townfilter::-moz-placeholder { color: #ccc; }
+	.townfilter:-ms-input-placeholder { color: #ccc; }
+
 	#mainlogo {
 		float: none !important;
     	text-align: center;
@@ -104,7 +125,8 @@
 	    font-size: 1.4rem;
 	}
 	.carousel-caption {
-	    top: 0;
+	   /* top: 0;*/
+	    top: 50%;
 	    text-align: center;
 	    padding-top: 4px;
 	}

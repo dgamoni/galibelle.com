@@ -14,7 +14,6 @@
 	          <div class="col-lg-4">
 	            <h2 class="home-shema-title"><?php echo $gal_home_shema_title; ?></h2>
 	            <p><?php echo $gal_home_shema_text; ?></p> 
-	            <a href="<?php echo $gal_home_shema_link; ?>" class="bbtn btn-link">Know more</a>
 	          </div>
 	          <div class="col-lg-8 text-lg-right flex-lg-middle">
 	          	<img src="<?php echo $gal_home_shema_img['url']; ?>" class="w-100">
